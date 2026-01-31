@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Verify Result</title>
+</head>
+<body>
+
+<h2>QR Verification</h2>
+<div id="v"></div>
+
+<script>
+const q=new URLSearchParams(location.search).get("q");
+fetch("YOUR_APPS_SCRIPT_URL?action=verify&q="+q)
+.then(r=>r.json())
+.then(d=>{
+  v.innerHTML=d.valid?"✅ Valid Result":"❌ Invalid";
+});
+</script>
+
+</body>
+</html>
